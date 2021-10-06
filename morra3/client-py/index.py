@@ -82,10 +82,10 @@ def main():
             print('Bob accepts the wager of %s ' %
                   rpc('/stdlib/bigNumberToNumber', fmt(amt)))
             
-            rpc_callbacks(
-                '/backend/Bob',
-                ctc_bob,
-                dict(acceptWager=acceptWager, **player('Bob')))
+        rpc_callbacks(
+            '/backend/Bob',
+            ctc_bob,
+            dict(acceptWager=acceptWager, **player('Bob')))
 
     bob = Thread(target=play_bob)
     bob.start()
