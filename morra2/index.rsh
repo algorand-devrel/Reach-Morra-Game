@@ -92,7 +92,7 @@ export const main =
       B.only(() => {
         interact.acceptWager(wager); });
       B.pay(wager)
-        .timeout(DEADLINE, () => closeTo(A, informTimeout));
+        .timeout(relativeTime(DEADLINE), () => closeTo(A, informTimeout));
 
       var outcome = DRAW;      
       invariant(balance() == 2 * wager && isOutcome(outcome) );
@@ -115,11 +115,11 @@ export const main =
       });
      
         A.publish(commitA)
-          .timeout(DEADLINE, () => closeTo(B, informTimeout));
+          .timeout(relativeTime(DEADLINE), () => closeTo(B, informTimeout));
         commit();    
 
         A.publish(guessCommitA)
-          .timeout(DEADLINE, () => closeTo(B, informTimeout));
+          .timeout(relativeTime(DEADLINE), () => closeTo(B, informTimeout));
           ;
         commit();
         // Bob does not know the values for Alice, but Alice does know the values 
@@ -138,10 +138,10 @@ export const main =
           });
 
         B.publish(fingersB)
-          .timeout(DEADLINE, () => closeTo(A, informTimeout));
+          .timeout(relativeTime(DEADLINE), () => closeTo(A, informTimeout));
         commit();
         B.publish(guessB)
-          .timeout(DEADLINE, () => closeTo(A, informTimeout));
+          .timeout(relativeTime(DEADLINE), () => closeTo(A, informTimeout));
           ;
         
         commit();
@@ -152,13 +152,13 @@ export const main =
 
         });
         A.publish(saltA, fingersA)
-          .timeout(DEADLINE, () => closeTo(B, informTimeout));
+          .timeout(relativeTime(DEADLINE), () => closeTo(B, informTimeout));
         // check that the published values match the original values.
         checkCommitment(commitA, saltA, fingersA);
         commit();
 
         A.publish(guessSaltA, guessA)
-        .timeout(DEADLINE, () => closeTo(B, informTimeout));
+        .timeout(relativeTime(DEADLINE), () => closeTo(B, informTimeout));
         checkCommitment(guessCommitA, guessSaltA, guessA);
 
         commit();
@@ -169,7 +169,7 @@ export const main =
         });
      
         A.publish(WinningNumber)
-        .timeout(DEADLINE, () => closeTo(A, informTimeout));
+        .timeout(relativeTime(DEADLINE), () => closeTo(A, informTimeout));
 
         outcome = winner(fingersA, fingersB, guessA, guessB);
         continue; 

@@ -9,9 +9,9 @@ const reach = loadStdlib(process.env);
   const accBob = await stdlib.newTestAccount(startingBalance);
 
 // Alice deploys the application to backend
-  const ctcAlice = accAlice.deploy(backend);
+  const ctcAlice = accAlice.contract(backend);
 // Bob attaches to it (opt_in)  
-  const ctcBob = accBob.attach(backend, ctcAlice.getInfo());
+  const ctcBob = accBob.contract(backend, ctcAlice.getInfo());
 
 // Create some arrays for fingers, outcome and guess
   const FINGERS = [0, 1, 2];

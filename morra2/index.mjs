@@ -1,8 +1,10 @@
 import { loadStdlib } from '@reach-sh/stdlib';
 import * as backend from './build/index.main.mjs';
-// const reach = loadStdlib(process.env);
+const stdlib = loadStdlib(process.env);
+
 (async () => {
-  const stdlib = await loadStdlib();
+  // const howManyRounds = stdlib.connector === 'ALGO' ? 3 : 10;
+  // console.log(howManyRounds);
   const startingBalance = stdlib.parseCurrency(10);
 
   const accAlice = await stdlib.newTestAccount(startingBalance);
@@ -13,8 +15,8 @@ import * as backend from './build/index.main.mjs';
   const beforeAlice = await getBalance(accAlice);
   const beforeBob = await getBalance(accBob);
 
-  const ctcAlice = accAlice.deploy(backend);
-  const ctcBob = accBob.attach(backend, ctcAlice.getInfo());
+  const ctcAlice = accAlice.contract(backend);
+  const ctcBob = accBob.contract(backend, ctcAlice.getInfo());
 
   const FINGERS = [0, 1, 2, 3, 4, 5];
   const GUESS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];  

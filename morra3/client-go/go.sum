@@ -14,3 +14,13 @@ github.com/reach-sh/reach-lang/rpc-client/go v0.0.0-20210902165109-6dd84386e2a2 
 github.com/reach-sh/reach-lang/rpc-client/go v0.0.0-20210902165109-6dd84386e2a2/go.mod h1:DYBIr+GSAkPzI//9ndzL+tHhhCNPzwQ2HMOTyo/6nmk=
 github.com/reach-sh/reach-lang/rpc-client/go v0.0.0-20210902234802-06c39c50becf h1:i1REV5uKdVFfb+5IZRosjzd50kAQn5HrtDEnL/dv05s=
 github.com/reach-sh/reach-lang/rpc-client/go v0.0.0-20210902234802-06c39c50becf/go.mod h1:DYBIr+GSAkPzI//9ndzL+tHhhCNPzwQ2HMOTyo/6nmk=
+github.com/reach-sh/reach-lang/rpc-client/go v0.0.0-20210917124138-72788b6dec6e h1:oJRxi7RbXqb03GEtjoZLySW0gDn4GCbupkpDVyLdwCE=
+github.com/reach-sh/reach-lang/rpc-client/go v0.0.0-20210917124138-72788b6dec6e/go.mod h1:DYBIr+GSAkPzI//9ndzL+tHhhCNPzwQ2HMOTyo/6nmk=
+github.com/reach-sh/reach-lang/rpc-client/go v0.0.0-20210920133507-b5ffe62ddb97 h1:5ORTGt5gAmjV7Tjrgc0AYG0QLgr1zNqZQGUJA80ez7g=
+github.com/reach-sh/reach-lang/rpc-client/go v0.0.0-20210920133507-b5ffe62ddb97/go.mod h1:DYBIr+GSAkPzI//9ndzL+tHhhCNPzwQ2HMOTyo/6nmk=
+github.com/reach-sh/reach-lang/rpc-client/go v0.0.0-20211101214012-816269ef9956 h1:SmW1p9o0aQU7QDUWrnbeLjpvSdlymslu5GQCZGm1WmA=
+github.com/reach-sh/reach-lang/rpc-client/go v0.0.0-20211101214012-816269ef9956/go.mod h1:DYBIr+GSAkPzI//9ndzL+tHhhCNPzwQ2HMOTyo/6nmk=
+github.com/reach-sh/reach-lang/rpc-client/go v0.0.0-20211102191730-0fe6ba8e75b7 h1:BVzFBB6A46T1K7pRjt2A/V+EbJFbbEDnRsMDla67h2g=
+github.com/reach-sh/reach-lang/rpc-client/go v0.0.0-20211102191730-0fe6ba8e75b7/go.mod h1:DYBIr+GSAkPzI//9ndzL+tHhhCNPzwQ2HMOTyo/6nmk=
+github.com/reach-sh/reach-lang/rpc-client/go v0.0.0-20211104162458-b4b6e28d57a6 h1:OMUW9U2gXrFF0a/8IwEnfTsnKluXXeHdwJ1E7o0W3lc=
+github.com/reach-sh/reach-lang/rpc-client/go v0.0.0-20211104162458-b4b6e28d57a6/go.mod h1:DYBIr+GSAkPzI//9ndzL+tHhhCNPzwQ2HMOTyo/6nmk=

@@ -30,8 +30,8 @@ def main():
     before_alice = get_balance(acc_alice)
     before_bob = get_balance(acc_bob)
 
-    ctc_alice = rpc('/acc/deploy', acc_alice)
-    ctc_bob = rpc('/acc/attach', acc_bob, rpc('/ctc/getInfo', ctc_alice))
+    ctc_alice = rpc('/acc/contract', acc_alice)
+    # ctc_bob = rpc('/acc/contract', acc_bob, rpc('/ctc/getInfo', ctc_alice))
 
     FINGERS = [0, 1, 2, 3, 4, 5]
     GUESS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -81,7 +81,8 @@ def main():
         def acceptWager(amt):
             print('Bob accepts the wager of %s ' %
                   rpc('/stdlib/bigNumberToNumber', fmt(amt)))
-            
+        ctc_bob = rpc('/acc/contract', acc_bob, rpc('/ctc/getInfo', ctc_alice))
+           
         rpc_callbacks(
             '/backend/Bob',
             ctc_bob,
@@ -100,7 +101,7 @@ def main():
     print('  Bob went from %s to %s' % (before_bob,   after_bob))
 
     rpc('/forget/acc', acc_alice, acc_bob)
-    rpc('/forget/ctc', ctc_alice, ctc_bob)
+    rpc('/forget/ctc', ctc_alice)
 
 
 if __name__ == '__main__':

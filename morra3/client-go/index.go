@@ -13,7 +13,7 @@ import (
 // frontend authors will normally import from GitHub like so:
 import reachrpc "github.com/reach-sh/reach-lang/rpc-client/go"
 
-//import "reachrpc"
+// import "reachrpc"
 
 type jsono = map[string]interface {}
 
@@ -43,10 +43,8 @@ func main() {
   beforeAlice     := getBalance(accAlice)
   beforeBob       := getBalance(accBob)
 
-  ctcAlice        := rpc("/acc/deploy",  accAlice).(string)
-  aliceInfo       := rpc("/ctc/getInfo", ctcAlice).(interface{})
-  ctcBob          := rpc("/acc/attach",  accBob, aliceInfo).(string)
-
+  ctcAlice        := rpc("/acc/contract",  accAlice).(string)
+  
   FINGERS         := [6]int{0, 1, 2, 3, 4, 5}
   GUESS           := [11]int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}  
   OUTCOME         := [3]string{"Bob wins", "Draw", "Alice wins"}
@@ -106,7 +104,10 @@ func main() {
   playAlice := func() {
     defer wg.Done()
     d := player("Alice")
+    // startingWager := int(rpc("/stdlib/bigNumberToNumber", 5).(float64))
     d["wager"] = rpc("/stdlib/parseCurrency", 5).(jsono)
+    // d["wager"] = rpc("/stdlib/parseCurrency", startingWager).(jsono)   
+ 
     d["deadline"] = 10
     // d["log"] = localPrint.(jsono)
     rpcCallbacks("/backend/Alice", ctcAlice, d)
@@ -119,8 +120,11 @@ func main() {
     d["acceptWager"] = func(amt jsono) {  
       fmt.Printf("Bob accepts the wager of %s\n", fmtc(amt))
     }
+    aliceInfo := rpc("/ctc/getInfo", ctcAlice).(interface{})
+    ctcBob := rpc("/acc/contract",  accBob, aliceInfo).(string)
 
     rpcCallbacks("/backend/Bob", ctcBob, d)
+    rpc("/forget/ctc", ctcBob)
   }
 
   go playAlice()
@@ -134,5 +138,5 @@ func main() {
   fmt.Printf("  Bob went from %s to %s\n", beforeBob,   afterBob)
 
   rpc("/forget/acc", accAlice, accBob)
-  rpc("/forget/ctc", ctcAlice, ctcBob)
+  rpc("/forget/ctc", ctcAlice)
 }
