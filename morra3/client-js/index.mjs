@@ -80,15 +80,6 @@ import { mkRPC } from '@reach-sh/rpc-client';
     });
   return await rpc(`/forget/ctc`, ctcBob);
   }),
-// end new
-    // rpcCallbacks(`/backend/Bob`, ctcBob, {
-
-    //   ...Player('Bob'),
-    //   acceptWager: async (amt) => {       
-    //     console.log(`Bob accepts the wager of ${await fmt(amt)}.`);
-    //   },
-    //   log: console.log,
-    // }),
   ]);
   const afterAlice = await getBalance(accAlice);
   const afterBob =  await getBalance(accBob);

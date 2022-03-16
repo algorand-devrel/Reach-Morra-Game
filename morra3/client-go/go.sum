@@ -24,3 +24,7 @@ github.com/reach-sh/reach-lang/rpc-client/go v0.0.0-20211102191730-0fe6ba8e75b7 
 github.com/reach-sh/reach-lang/rpc-client/go v0.0.0-20211102191730-0fe6ba8e75b7/go.mod h1:DYBIr+GSAkPzI//9ndzL+tHhhCNPzwQ2HMOTyo/6nmk=
 github.com/reach-sh/reach-lang/rpc-client/go v0.0.0-20211104162458-b4b6e28d57a6 h1:OMUW9U2gXrFF0a/8IwEnfTsnKluXXeHdwJ1E7o0W3lc=
 github.com/reach-sh/reach-lang/rpc-client/go v0.0.0-20211104162458-b4b6e28d57a6/go.mod h1:DYBIr+GSAkPzI//9ndzL+tHhhCNPzwQ2HMOTyo/6nmk=
+github.com/reach-sh/reach-lang/rpc-client/go v0.0.0-20211105134600-86c6dc84e7fa h1:E8oKAbymBY3qDEM6HR6Inu0yW0uU/RaO6br/Sj7qL88=
+github.com/reach-sh/reach-lang/rpc-client/go v0.0.0-20211105134600-86c6dc84e7fa/go.mod h1:DYBIr+GSAkPzI//9ndzL+tHhhCNPzwQ2HMOTyo/6nmk=
+github.com/reach-sh/reach-lang/rpc-client/go v0.0.0-20220315185726-216924ccb21e h1:6UJjX1L8/PpCLuypWQZuYuQYGC+HI/II4n61S/QZIlc=
+github.com/reach-sh/reach-lang/rpc-client/go v0.0.0-20220315185726-216924ccb21e/go.mod h1:DYBIr+GSAkPzI//9ndzL+tHhhCNPzwQ2HMOTyo/6nmk=
