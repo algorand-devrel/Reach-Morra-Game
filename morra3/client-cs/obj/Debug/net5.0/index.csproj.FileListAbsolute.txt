@@ -1,0 +1,5 @@
+/Users/algorand/Documents/GitHub/Reach-Morra-Game/morra3/client-cs/obj/Debug/net5.0/index.csprojAssemblyReference.cache
+/Users/algorand/Documents/GitHub/Reach-Morra-Game/morra3/client-cs/obj/Debug/net5.0/index.GeneratedMSBuildEditorConfig.editorconfig
+/Users/algorand/Documents/GitHub/Reach-Morra-Game/morra3/client-cs/obj/Debug/net5.0/index.AssemblyInfoInputs.cache
+/Users/algorand/Documents/GitHub/Reach-Morra-Game/morra3/client-cs/obj/Debug/net5.0/index.AssemblyInfo.cs
+/Users/algorand/Documents/GitHub/Reach-Morra-Game/morra3/client-cs/obj/Debug/net5.0/index.csproj.CoreCompileInputs.cache
