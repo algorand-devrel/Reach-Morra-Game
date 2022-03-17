@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Web;
 using System.Text.Json;
@@ -82,6 +82,7 @@ public class Program {
 
     await rpc.Call("/forget/acc", accAlice, accBob);
     await rpc.Call("/forget/ctc", ctcAlice);
+    await rpc.Call("/stop");
 
     return;
   }
