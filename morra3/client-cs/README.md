@@ -11,7 +11,7 @@ Verifying knowledge assertions
 Verifying for generic connector
   Verifying when ALL participants are honest
   Verifying when NO participants are honest
-Checked 86 theorems; No failures!
+Checked 153 theorems; No failures!
 
 > app
 > node --experimental-modules --unhandled-rejections=strict index.mjs
@@ -20,11 +20,15 @@ Checked 86 theorems; No failures!
  This is highly insecure in Real Life applications and must
  only be permitted under controlled conditions (such as
  during development)...
-Bob accepts the wager of 5
-Alice played Scissors
-Bob played Rock
-Alice saw outcome Win
-Bob saw outcome Win
-Alice went from 100 to 94.992.
-  Bob went from 100 to 104.997.
+Alice played 4
+Alice guessed total of 8
+Bob played 2
+Bob guessed total of 6
+Actual total fingers thrown: 6
+----------------------------
+Alice saw outcome Bob wins
+Bob saw outcome Bob wins
+Alice went from 10 to 4.974.
+  Bob went from 10 to 14.99.
+
 ```
