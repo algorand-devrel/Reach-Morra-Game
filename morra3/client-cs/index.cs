@@ -11,7 +11,7 @@ public class Program {
   public static async Task Main() {
     Options opts = new Options();
     Client rpc = new Client(opts);
-    var startingBalance = await rpc.Call("/stdlib/parseCurrency", Client.AsJson("100"));
+    var startingBalance = await rpc.Call("/stdlib/parseCurrency", Client.AsJson("10"));
     var accAlice = await rpc.Call("/stdlib/newTestAccount", startingBalance);
     var accBob = await rpc.Call("/stdlib/newTestAccount", startingBalance);
 
@@ -24,17 +24,33 @@ public class Program {
 
     var ctcAlice = await rpc.Call("/acc/contract", accAlice);
 
-    string[] HAND = new string[3]{"Rock", "Paper", "Scissors"};
-    string[] OUTCOME = new String[3]{"Win", "Lose", "Draw"};
+    int[] FINGERS = new int[6]{0, 1, 2, 3, 4, 5};
+    string[] OUTCOME = new string[3]{"Bob wins", "Draw", "Alice wins"};
 
     var Player = (string who) => {
       var rand = new Random();
       var cbs = new Callbacks();
       cbs.Methods("stdlib.hasRandom");
-      cbs.Method("getHand", async (args) => {
-          var hand = rand.Next(HAND.Length);
-          Console.WriteLine($"{who} played {HAND[hand]}");
-          return Client.AsJson(hand.ToString());
+      cbs.Method("getFingers", async (args) => {
+          var fingers = rand.Next(FINGERS.Length);
+          Console.WriteLine($"{who} played {FINGERS[fingers]}");
+          return Client.AsJson((fingers.ToString()));
+      });
+      cbs.Method("getGuess", async (args) => {
+        var fingersBN = args[0];  
+        var fingersJE = await rpc.Call("/stdlib/bigNumbertoNumber", fingersBN); 
+        var fingers = fingersJE.GetInt64();             
+        var guess = rand.Next(FINGERS.Length) + FINGERS[fingers];
+        Console.WriteLine($"{who} guessed total of {guess}");
+        return Client.AsJson(guess.ToString());
+      });
+      cbs.Method("seeWinning", async (args) => {
+      var winningNumberBN = args[0];
+      var winningNumberJE = await rpc.Call("/stdlib/bigNumbertoNumber", winningNumberBN);
+      var winningNumber = winningNumberJE.GetInt64();
+      Console.WriteLine($"Actual total fingers thrown: {winningNumber}");
+      Console.WriteLine($"----------------------------");   
+      return Client.AsJson("null");
       });
       cbs.Method("seeOutcome", async (args) => {
           var outcomeBN = args[0];
