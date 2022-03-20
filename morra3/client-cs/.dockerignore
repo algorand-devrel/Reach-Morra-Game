@@ -1,3 +1,4 @@
+obj/
 Dockerfile
 build.sh
 csharp.sh
