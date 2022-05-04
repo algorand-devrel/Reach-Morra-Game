@@ -18,8 +18,8 @@ export const main =
       A.only(() => {
         // interact methods w front end for Alice
         const _fingersA = interact.getFingers();
-        const _guessA = interact.getGuess(_fingersA);
-
+        const _guessA =  interact.getGuess(_fingersA); 
+       
         // bind the value of the result of interacting with Alice through the 
         // getFingers and getGuess methods, which are in JavaScript frontend.
         const fingersA = declassify(_fingersA); 

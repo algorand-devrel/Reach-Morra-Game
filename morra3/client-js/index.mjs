@@ -17,6 +17,7 @@ const accBob          = await rpc(`/stdlib/newTestAccount`, startingBalance);
 
 const fmt = async x =>
     await rpc(`/stdlib/formatCurrency`, x, 4);
+
 const getBalance = async who =>
   fmt(await rpc(`/stdlib/balanceOf`, who));
 
@@ -33,8 +34,7 @@ const OUTCOME = ['Bob wins', 'Draw', 'Alice wins'];
 const Player = (Who) => ({
   "stdlib.hasRandom": true,  
   getFingers: async () => {
-    const fingers = Math.floor(Math.random() * 6);
-          
+    const fingers = Math.floor(Math.random() * 6);         
     console.log(`${Who} shoots ${FINGERS[fingers]} fingers`);     
     return fingers;
   },
@@ -62,10 +62,9 @@ const Player = (Who) => ({
   //  log: console.log,
 await Promise.all([
   rpcCallbacks(`/backend/Alice`, ctcAlice, {  
-
     ...Player('Alice'),
     wager: await rpc(`/stdlib/parseCurrency`, 5),
-    log: console.log,
+    // log: console.log,
     deadline: 10,
   }),
 
@@ -76,11 +75,12 @@ rpc(`/ctc/getInfo`, ctcAlice).then(async (info) => {
     acceptWager: async (amt) => {
       console.log(`Bob accepts the wager of ${await fmt(amt)}.`);
     },
-    log: console.log,      
+    // log: console.log,      
   });
-return await rpc(`/forget/ctc`, ctcBob);
-}),
+  return await rpc(`/forget/ctc`, ctcBob);
+  }),
 ]);
+
 const afterAlice = await getBalance(accAlice);
 const afterBob =  await getBalance(accBob);
 
@@ -90,6 +90,6 @@ console.log(`Bob went from ${beforeBob} to ${afterBob}.`);
 await Promise.all([
   await rpc(`/forget/acc`, accAlice, accBob),
   await rpc(`/forget/ctc`, ctcAlice),
-  await rpc(`/stop`),
+  // await rpc(`/stop`),
 ]);
 

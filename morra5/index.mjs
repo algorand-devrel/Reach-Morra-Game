@@ -1,15 +1,31 @@
 import { loadStdlib } from '@reach-sh/stdlib';
 import * as backend from './build/index.main.mjs';
+import { ALGO_WalletConnect as WalletConnect } from '@reach-sh/stdlib';
 const stdlib = loadStdlib(process.env);
+stdlib.setWalletFallback(stdlib.walletFallback({providerEnv: 'TestNet', WalletConnect }));
+// const alicePassphrase = "price clap dilemma swim genius fame lucky crack torch hunt maid palace ladder unlock symptom rubber scale load acoustic drop oval cabbage review abstract embark";
+// 7DCJZKC4JDUKM25W7TDJ5XRTWGUTH6DOG5WARVA47DOCXQOTB4GMLNVW7I
+
+const bobPassphrase = "unlock garage rack news treat bonus census describe stuff habit harvest imitate cheap lemon cost favorite seven tomato viable same exercise letter dune able add";
+// LXLRKA2GSHBGL4F4YCKQDBK6M7OVRDKM5YSQTIZG7G7HKPN6I7OJL24AG4
 
 (async () => {
 
-  const startingBalance = stdlib.parseCurrency(10);
+  const accAlice = await stdlib.getDefaultAccount();
+  // const accBob = stdlib.getDefaultAccount("LXLRKA2GSHBGL4F4YCKQDBK6M7OVRDKM5YSQTIZG7G7HKPN6I7OJL24AG4"); 
+  // const accAlice = await stdlib.connectAccount("7DCJZKC4JDUKM25W7TDJ5XRTWGUTH6DOG5WARVA47DOCXQOTB4GMLNVW7I");
+  // const accBob = stdlib.connectAccount("LXLRKA2GSHBGL4F4YCKQDBK6M7OVRDKM5YSQTIZG7G7HKPN6I7OJL24AG4");
 
+
+  // const startingBalance = stdlib.parseCurrency(10);
+  // const accAlice = await stdlib.newAccountFromMnemonic(alicePassphrase);
+  // const accBob = await stdlib.getDefaultAccount('LXLRKA2GSHBGL4F4YCKQDBK6M7OVRDKM5YSQTIZG7G7HKPN6I7OJL24AG4');
+  // const accBob = await stdlib.getDefaultAccount();
+  const accBob = await stdlib.newAccountFromMnemonic(bobPassphrase); 
   // const howManyRounds = stdlib.connector === 'ALGO' ? 3 : 10;
   // console.log(howManyRounds); 
-  const accAlice = await stdlib.newTestAccount(startingBalance);  
-  const accBob = await stdlib.newTestAccount(startingBalance);
+  // const accAlice = await stdlib.newTestAccount(startingBalance);  
+  // const accBob = await stdlib.newTestAccount(startingBalance);
 
   const fmt = (x) => stdlib.formatCurrency(x, 4);
   const getBalance = async (who) => fmt(await stdlib.balanceOf(who));

@@ -4,8 +4,7 @@ const [ isFingers, ZERO, ONE, TWO, THREE, FOUR, FIVE ] = makeEnum(6);
 const [ isGuess, ZEROG, ONEG, TWOG, THREEG, FOURG, FIVEG, SIXG, SEVENG, EIGHTG, NINEG, TENG ] = makeEnum(11);
 const [ isOutcome, B_WINS, DRAW, A_WINS ] = makeEnum(3);
 
-// game 
-
+// game logic
 const winner = (fingersA, fingersB, guessA, guessB) => { 
   if ( guessA == guessB ) 
    {
@@ -66,13 +65,13 @@ const Player =
 const Alice =
         { ...Player,
           wager: UInt, 
- //         ...hasConsoleLogger
+          ...hasConsoleLogger
         };
 // added a acceptWager function for Bob
 const Bob =
         { ...Player,
           acceptWager: Fun([UInt], Null),
-//          ...hasConsoleLogger           
+          ...hasConsoleLogger           
         };
 const DEADLINE = 30; 
 
@@ -104,7 +103,7 @@ export const main =
           const _fingersA = interact.getFingers();
           const _guessA = interact.getGuess(_fingersA);  
           // log fingersA to frontend       
-          // interact.log(_fingersA);  
+          interact.log(_fingersA);  
           // interact.log(_guessA);  
           // We need Alice to be able to publish her fingers and guess, 
           // but also keep it secret.  makeCommitment does this.    

@@ -33,7 +33,8 @@ func main() {
   }
 
   getBalance := func(w string) string {
-    return fmtc(rpc("/stdlib/balanceOf", w).(jsono))
+    return fmtc(rpc(
+      ", w).(jsono))
   }
 
   startingBalance := rpc("/stdlib/parseCurrency", 10).(jsono)
